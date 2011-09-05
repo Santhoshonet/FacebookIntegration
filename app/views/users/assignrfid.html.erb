@@ -1,0 +1,23 @@
+<%= flash[:status] %>
+<form>
+    <% users = User.find(:all, :select => "email", :conditions => "rfid = ''") %>
+    <% if users.count() > 0 %>
+        <h4>Select user </h4>
+        <select name="User_email">
+            <% users.each  do |user| %>
+                <option value="<%= user.email %>"><%= user.email %></option>
+            <% end %>
+        </select>
+        <h4>Input RFID</h4>
+        <input type="text" name="rfid" />
+        <br>
+        <br>
+        <input type="submit" value="Save">
+    <% else %>
+        <h3> All the users have been assigned RFID. </h3>
+    <% end %>
+</form>
+
+<br>
+
+<%= link_to "go home", root_url %>

@@ -1,0 +1,44 @@
+<h2> Share an url in facebook </h2>
+
+<% unless  flash[:error].nil? %>
+    <span style="color:Red"> <%=  flash[:error].to_s %> </span>
+<% end %>
+
+<% if @logged_in %>
+
+    <% form_tag :action=>"post" do %>
+
+        Your Url
+
+        <br>
+        
+        <%= text_area_tag "message" %>
+
+        <br>
+        <br>
+        
+        
+        <%= submit_tag "Post" %>
+
+    <% end %>
+
+    
+
+<% else %>
+
+    <%= link_to "Login", @oauth_url %>
+
+    <br>
+    
+<% end %>
+
+<br>
+
+<%= link_to "View list of registered users", :controller => "users", :action => "index" %>
+
+<br>
+
+<br>
+
+
+<%= link_to "RFID Configuration", :controller => "users", :action => "assignrfid" %>
