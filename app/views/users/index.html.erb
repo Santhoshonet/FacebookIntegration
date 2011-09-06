@@ -27,7 +27,7 @@
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
-    <td><a href="#" onclick="print('<%= "http://localhost:3000/users/qr_codes/" + user.id.to_s  %>');" >Print QR code</a></td>
+    <td><a href="#" onclick="print('<%= "http://facebookintegration.heroku.com/users/qr_codes/" + user.id.to_s  %>');" >Print QR code</a></td>
     <td><%= link_to 'QR Code', :controller => "users", :action => "qr_codes", :id => user.id %></td>
   </tr>
 <% end %>
@@ -45,7 +45,7 @@
 <script type="text/javascript" language="JavaScript">
   function print(url)
   {
-        var win = window.open(url,"mywindow","width=20,height=150");
+        var win = window.open(url,"mywindow","width=60,height=150");
         win.focus();
   }
 </script>
