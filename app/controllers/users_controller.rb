@@ -105,4 +105,22 @@ class UsersController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
+
+  def qr_codes
+
+    unless params[:id].nil?
+
+      user = User.find(params[:id])
+
+      unless user.nil?
+
+          @qr = RQRCode::QRCode.new(user.email , :size => 4, :level => :m )
+        
+      end
+
+    end
+
+  end
+
 end

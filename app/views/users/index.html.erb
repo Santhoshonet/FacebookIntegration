@@ -12,6 +12,7 @@
     <th></th>
     <th></th>
     <th></th>
+    <th></th>
   </tr>
 
 <% @users.each do |user| %>
@@ -26,6 +27,8 @@
     <td><%= link_to 'Show', user %></td>
     <td><%= link_to 'Edit', edit_user_path(user) %></td>
     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><a href="#" onclick="print('<%= "http://localhost:3000/users/qr_codes/" + user.id.to_s  %>');" >Print QR code</a></td>
+    <td><%= link_to 'QR Code', :controller => "users", :action => "qr_codes", :id => user.id %></td>
   </tr>
 <% end %>
 </table>
@@ -38,3 +41,11 @@
 <br>
 
 <%= link_to "go home", root_url %>
+
+<script type="text/javascript" language="JavaScript">
+  function print(url)
+  {
+        var win = window.open(url,"mywindow","width=20,height=150");
+        win.focus();
+  }
+</script>

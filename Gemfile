@@ -18,6 +18,14 @@ gem 'mini_fb'
 # gem 'ruby-debug'
 # gem 'ruby-debug19'
 gem "pg"
+
+gem "rqrcode-rails3"
+
+gem "mini_magick"
+
+gem "rqrcode"
+
+
 # Bundle the extra gems:
 # gem 'bj'
 # gem 'nokogiri'
