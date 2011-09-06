@@ -1,6 +1,6 @@
 <%= flash[:status] %>
 <form>
-    <% users = User.find(:all, :select => "email", :conditions => "rfid = ''") %>
+    <% users = User.find(:all, :select => "email", :conditions => "rfid IS NULL OR rfid = ''") %>
     <% if users.count() > 0 %>
         <h4>Select user </h4>
         <select name="User_email">
